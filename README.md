@@ -1,7 +1,5 @@
 
 **Project:** Magento Software Testing Board
-**Deskripsi Project**:
-Project ini bertujuan untuk QA automation fitur-fitur pada situs web Magento Software Testing Board.
 
 **Pembagian Tugas**
 1.  **Create an Account**: Yoga Satria Utama / yogasatriautama@gmail.com
