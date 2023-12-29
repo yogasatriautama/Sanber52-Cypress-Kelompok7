@@ -1,5 +1,4 @@
 Cypress.Commands.add('fillPersonalInformation', (firstName, lastName) => {
-    // Implementasi pengisian informasi pribadi di sini
     cy.get('input[name="firstname"]').type(firstName);
     cy.get('input[name="lastname"]').type(lastName);
   });
@@ -12,7 +11,7 @@ Cypress.Commands.add('fillPersonalInformation', (firstName, lastName) => {
   });
   
   Cypress.Commands.add('logout', () => {
-cy.get('.logout-link').click();
+    cy.get('.logout-link').click();
   });
   
   Cypress.Commands.add('generateRandomEmail', () => {
