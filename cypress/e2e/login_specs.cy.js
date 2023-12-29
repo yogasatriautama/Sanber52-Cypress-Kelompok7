@@ -14,7 +14,7 @@ describe('Login Test', () => {
     cy.url().should('include', '/customer/account/');
   });
 
-  it.only('should display an error with invalid credentials', function () {
+  it('should display an error with invalid credentials', function () {
     const user = this.userData.user;
     const invalidEmail = 'invalid@example.com';
     const invalidPassword = 'InvalidPassword';
@@ -24,7 +24,7 @@ describe('Login Test', () => {
     user.password = invalidPassword;
   
     cy.login(user);
-    cy.get('.message-error').should('be.visible', { timeout: 15000 });
+    cy.get('.message-error').should('be.visible');
   });
   
   it('should navigate to the forgot password page', () => {

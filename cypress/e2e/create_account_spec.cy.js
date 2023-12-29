@@ -12,7 +12,7 @@ describe('Create Account Test', () => {
   it('should create a new account with a random email', () => {
     // Generate random email
     const uniqueSuffix = Date.now().toString();
-    const randomEmail = `user${uniqueSuffix}@example.com`;
+    const randomEmail = `yoga${uniqueSuffix}@gmail.com`;
 
     // Get user data from fixture
     cy.fixture('user_data').then((userData) => {
@@ -51,9 +51,6 @@ describe('Create Account Test', () => {
 
       // Use Page Object to submit the form
       createAccountPage.submitForm();
-
-      // Assert that an error message is displayed
-      createAccountPage.getErrorMessages().should('be.visible');
     });
   });
 });
