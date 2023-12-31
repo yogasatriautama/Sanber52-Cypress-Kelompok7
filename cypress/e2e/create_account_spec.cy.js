@@ -51,6 +51,9 @@ describe('Create Account Test', () => {
 
       // Use Page Object to submit the form
       createAccountPage.submitForm();
+
+      // Use Page Object to assert that an error related to duplicate email is displayed
+      createAccountPage.getErrorMessages2().should('be.visible');
     });
 
     it.only('should display an error for weak password', () => {
@@ -74,4 +77,49 @@ describe('Create Account Test', () => {
       });
     });    
   });
+  
+  it('should display an error for invalid email format', () => {
+    // Get user data from fixture
+    cy.fixture('user_data').then((userData) => {
+      const { firstName, lastName, password } = userData.user;
+  
+      // Visit create account page
+      createAccountPage.visit();
+  
+      // Use Page Object to fill personal information
+      createAccountPage.fillPersonalInformation(firstName, lastName);
+  
+      // Use Page Object to fill sign-in information with an invalid email format
+      createAccountPage.fillSignInInformation('invalid_email_format', password);
+  
+      // Use Page Object to submit the form
+      createAccountPage.submitForm();
+
+      // Use Page Object to assert that an error related to the invalid email format is displayed
+      createAccountPage.getEmailError().should('be.visible');
+  
+    });
+  });
+  
+  it('should display an error when creating an account with an empty email address', () => {
+    // Get user data from fixture
+    cy.fixture('user_data').then((userData) => {
+      const { firstName, lastName, password } = userData.user;
+  
+      // Visit create account page
+      createAccountPage.visit();
+  
+      // Use Page Object to fill personal information
+      createAccountPage.fillPersonalInformation(firstName, lastName);
+  
+      // Use Page Object to submit the form without filling email
+      createAccountPage.submitForm();
+  
+      // Use Page Object to assert that an error related to the empty email address is displayed
+      createAccountPage.getEmailError().should('be.visible');
+    });
+  });
+  
+    
+  
 });
