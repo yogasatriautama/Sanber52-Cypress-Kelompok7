@@ -54,3 +54,35 @@ Cypress.Commands.add('visibleChangePassword', () => {
   cy.get('#password').should('be.visible')
   cy.get('#password-confirmation').should('be.visible')
 });
+
+Cypress.Commands.add('visitEditAddress', () => {
+  cy.url().should('include', '/customer/account/')
+  cy.get('.box-billing-address > .box-actions > .action > span').click()
+})
+
+Cypress.Commands.add('visibleEditAdressForm', () => {
+  cy.get('#firstname').should('be.visible')
+  cy.get('#lastname').should('be.visible')
+  cy.get('#company').should('be.visible')
+  cy.get('#telephone').should('be.visible')
+  cy.get('#street_1').should('be.visible')
+  cy.get('#city').should('be.visible')
+  cy.get('#region_id').should('be.visible')
+  cy.get('#zip').should('be.visible')
+  cy.get('#country').should('be.visible')
+})
+
+Cypress.Commands.add('clearContactInformation', () => {
+  cy.get('#firstname').clear()
+  cy.get('#lastname').clear()
+  cy.get('#company').clear()
+  cy.get('#telephone').clear()
+})
+
+Cypress.Commands.add('clearAddress', () => {
+  cy.get('#street_1').clear()
+  cy.get('#city').clear()
+  cy.get('#region_id').select(0)
+  cy.get('#zip').clear()
+  cy.get('#country').select(0)
+})

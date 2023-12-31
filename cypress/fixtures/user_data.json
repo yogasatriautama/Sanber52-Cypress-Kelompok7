@@ -3,6 +3,14 @@
       "firstName": "Yoga",
       "lastName": "Satria",
       "email": "yoga@gmail.com",
-      "password": "Password123"
+      "password": "Password123",
+      "telephone": "082188888888"
+    },
+    "address": {
+      "street": "Jalan Maju Lancar",
+      "city": "Kabupaten Aman Selalu",
+      "region": "Alaska",
+      "zipCode": "1234",
+      "country": "United States"
     }
 }
