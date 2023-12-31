@@ -60,4 +60,42 @@ describe('Edit Address', () => {
         cy.get('#form-validate > .actions-toolbar > div.primary > .action').click()
         cy.contains(/You saved the address./i)
     });
+
+    it('Update contact information successfully', () => {
+        const newContactInfo = {
+            firstName: 'NewFirst',
+            lastName: 'NewLast',
+            telephone: '9876543210',
+        }
+
+        cy.visitEditAddress()
+        cy.visibleEditAdressForm()
+        cy.clearContactInformation()
+
+        // Fill new contact information
+        cy.get('#firstname').type(newContactInfo.firstName)
+        cy.get('#lastname').type(newContactInfo.lastName)
+        cy.get('#telephone').type(newContactInfo.telephone)
+
+        // Fill remaining address details
+        cy.clearAddress()
+        cy.fillPersonalInformation(user.firstName, user.lastName)
+        cy.get('#street_1').type(address.street)
+        cy.get('#city').type(address.city)
+        cy.get('#zip').type(address.zipCode)
+        cy.get('#country').select(address.country)
+        cy.get('#region_id').select(address.region)
+
+        cy.get('#form-validate > .actions-toolbar > div.primary > .action').click()
+
+        // Check if success message is shown
+        cy.contains(/You saved the address./i)
+
+        // Verify the updated contact information
+        cy.contains(newContactInfo.firstName)
+        cy.contains(newContactInfo.lastName)
+        cy.contains(newContactInfo.telephone)
+    })
+
+
 })

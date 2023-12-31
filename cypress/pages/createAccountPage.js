@@ -12,9 +12,9 @@ class CreateAccountPage {
 
   fillSignInInformation(email, password) {
     cy.get('input[name="email"]').as('emailInput').type(email);
-    cy.get('input[name="password"]').as('passwordInput').type(password);
+    cy.get('#password').as('passwordInput').type(password);
     cy.get('input[name="password_confirmation"]').as('confirmPasswordInput').type(password);
-  }
+  }   
 
   submitForm() {
     cy.get('button.action.submit.primary').click();
