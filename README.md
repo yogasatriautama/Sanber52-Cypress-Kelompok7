@@ -8,7 +8,7 @@ Ini adalah project latihan [Cypress](https://www.cypress.io/) untuk melakukan En
 4.  **My Account > Edit Address**: [Agil](https://github.com/AgilPriantama)
 5.  **Choose Product(s)**: Ma'ruf / ahmadmmaruf00@gmail.com
 6.  **View and Update Shopping Cart**: yuyinyuyinwa@gmail.com
-7.  **Proceed to Checkout**: Iwandi
+7.  **Proceed to Checkout**: Iwandi / iwandi.kurniansyah@gmail.com
 
 
 ## Run Locally
